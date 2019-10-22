@@ -206,7 +206,7 @@ body {
     visibility: visible;
     opacity: 1; }
   .likes__icon {
-    fill: #F59A83;
+    fill: rgb(196, 46, 9);
     height: 3.75rem;
     width: 3.75rem; }
   .likes__panel {
