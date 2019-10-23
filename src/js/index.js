@@ -54,3 +54,15 @@ element.searchForm.addEventListener('submit', e => {
     e.preventDefault(); // preventing the default behaviour of submit i.e., reloding the page
     controlSearch();
 })
+
+element.searchResPages.addEventListener('click', e => {
+    const button = e.target.closest('.btn-inline');
+    
+    if(button){
+        const goToPage = parseInt(button.dataset.goto, 10);  // 10 is the base i.e., decimal
+        searchView.clearResult();
+        searchView.renderResults(state.search.result, goToPage);
+        console.log(goToPage);
+    }
+    
+})
