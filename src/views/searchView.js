@@ -39,13 +39,13 @@ const renderRecipe = recipe => {
     }
     const markup = `
             <li>
-                <a class="results__link" href="#23456">
+                <a class="results__link" href="#${recipe.recipe_id}">
                     <figure class="results__fig">
-                        <img src="img/test-1.jpg" alt="${recipe.title}">
+                        <img src="${recipe.image_url}" alt="${recipe.title}">
                     </figure>
                     <div class="results__data">
                         <h4 class="results__name">${recipe.title}</h4>
-                        <p class="results__author">publisher:</p>
+                        <p class="results__author">${recipe.publisher}</p>
                     </div>
                 </a>
             </li>
@@ -83,14 +83,16 @@ const renderButtons = (page, numResults, resPerPage) => {
     element.searchResPages.insertAdjacentHTML('afterbegin', button);
 
 }
-export const renderResults = (recipes, page=1, resPerPage=3) => {
+export const renderResults = (recipes, page=1, resPerPage=10) => {
      //console.log(page);
 
     //render results of current page
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
+    console.log(recipes);
     
-    recipes.slice(start, end).forEach(renderRecipe);
+    //recipes.forEach(renderRecipe) ;
+   recipes.slice(start, end).forEach(renderRecipe);
 
     //render Pagination buttons
     renderButtons(page, recipes.length, resPerPage);

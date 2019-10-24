@@ -16,6 +16,7 @@ getResults('pizza');
 import Search from "../models/Search";
 import * as searchView from "../views/searchView";
 import {element, renderLoader, clearLoader} from "../views/base";
+import Recipe from '../models/Recipe';
 
 /** Global state of the object
  * -search object
@@ -25,6 +26,8 @@ import {element, renderLoader, clearLoader} from "../views/base";
  */
 const state = {};
 
+
+//Search Controller 
 const controlSearch = async () => {
     //1. get the query form the view
     const query = searchView.getInput();
@@ -66,3 +69,11 @@ element.searchResPages.addEventListener('click', e => {
     }
     
 })
+
+
+//Recipe controller
+const r = new Recipe(47746);
+r.getRecipe();
+console.log(r);
+
+
