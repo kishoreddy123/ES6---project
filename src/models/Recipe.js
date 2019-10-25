@@ -7,7 +7,7 @@ export default class Recipe{
     }
     async getRecipe(){
         try {
-            console.log(this.id);
+            //console.log(this.id);
             
             const res = await axios(`https://www.food2fork.com/api/get?key=${key}&rId=${this.id}`);
             this.title = res.data.recipe.title;
@@ -20,6 +20,15 @@ export default class Recipe{
         } catch (error) {
             console.log(error);
             
-        }
+        } 
+
+    }
+    calcTime() {
+        const noIng = this.ingredients.length;
+        const periods = Math.ceil(noIng / 3);
+        this.time = periods * 15;
+    }; 
+    calcServings() {
+        this.servings = 4;
     }
 }
